@@ -2,6 +2,9 @@
 
 Este projeto está sendo desenvolvido em lives no [http://twitch.tv/vquaiato](twitch.tv/vquaiato).
 
+### API sendo utilizando
+[API covid](https://documenter.getpostman.com/view/10808728/SzS8rjbc?version=latest#4b88f773-be9b-484f-b521-bb58dda0315c)
+
 A ideia é avançar nos seguintes tópicos:
 
 ### Console app em Elixir
