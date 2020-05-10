@@ -3,13 +3,17 @@ defmodule CovMonitor do
   Documentation for `CovMonitor`.
   """
 
-  # fazer tratamento de erros
-  # deixar o código mais Elixirish
   # escrever testes
   # retornar dados em um formato que queiramos
   def fazer_chamada_api(url) do
-    {:ok, resposta} = HTTPoison.get(url)
-    %{:body => corpo} = resposta
+    case HTTPoison.get(url) do
+      {:ok, resposta} -> parse_do_json(resposta)
+      {_status, erro} -> IO.inspect erro
+    end
+  end
+
+  defp parse_do_json(resposta_http) do
+    %{:body => corpo} = resposta_http
     casos_brasil = Jason.decode!(corpo)
     casos_brasil
   end
