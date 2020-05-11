@@ -12,11 +12,8 @@ defmodule CovMonitor do
     end
   end
 
-  #mover o matching do body direto pro heading da função
-  defp parse_do_json(resposta_http) do
-    %{:body => corpo} = resposta_http
-    casos_brasil = Jason.decode!(corpo)
-    casos_brasil
+  defp parse_do_json(%{:body => corpo} = _resposta_http) do
+    Jason.decode!(corpo)
   end
 
   defp transformar_dados(casos_brasil_da_api) do
