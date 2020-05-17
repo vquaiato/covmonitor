@@ -10,11 +10,10 @@ defmodule CovMonitorControllerTest do
 
   test "dados_covid_brasil retorna lista com dados" do
     CovMonitor.Http.Mock
-    |> expect(:casos_por_pais, fn _pais -> {:ok, [ Fix.dado_api() ]}
-    end)
+    |> expect(:casos_por_pais, fn _pais -> {:ok, [Fix.dado_api()]} end)
 
     assert CovMonitor.Controller.dados_covid_brasil() == [
-            Fix.dado_interno()
+             Fix.dado_interno()
            ]
   end
 
