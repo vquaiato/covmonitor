@@ -19,11 +19,11 @@ defmodule CovMonitor.Adapter do
   defp de_iso_string_para_string_brasil(iso_string) do
     pad = fn num ->
       num
-      |> Integer.to_string
+      |> Integer.to_string()
       |> String.pad_leading(2, "0")
     end
 
-    case iso_string |> DateTime.from_iso8601 do
+    case iso_string |> DateTime.from_iso8601() do
       {:ok, data, _zero} -> "#{pad.(data.day)}/#{pad.(data.month)}/#{data.year}"
       _ -> "Sem Data"
     end
