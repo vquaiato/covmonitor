@@ -1,6 +1,8 @@
 defmodule CovMonitorControllerTest do
   use ExUnit.Case, async: true
   import Mox
+  import ExUnit.CaptureLog
+  require Logger
 
   alias Test.Fixtures.Api, as: Fix
 
@@ -20,6 +22,6 @@ defmodule CovMonitorControllerTest do
     CovMonitor.Http.Mock
     |> expect(:casos_por_pais, fn _pais -> {:erro, "Erro da api"} end)
 
-    assert CovMonitor.Controller.dados_covid_brasil() == "Erro da api"
+    assert capture_log(fn -> CovMonitor.Controller.dados_covid_brasil() end) =~ "Erro da api"
   end
 end
