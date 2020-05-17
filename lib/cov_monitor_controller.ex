@@ -1,7 +1,8 @@
 defmodule CovMonitor.Controller do
   require Logger
 
-  alias CovMonitor.Adapter, as: Adapter
+  alias CovMonitor.Adapter
+  alias CovMonitor.Logic
 
   @api Application.get_env(:covmonitor, :covapi)
 

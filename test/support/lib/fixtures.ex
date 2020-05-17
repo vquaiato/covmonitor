@@ -1,13 +1,12 @@
 defmodule Test.Fixtures.Api do
-  defp alternar_dado_padrao(mapa_valores, mapa_destino) do
+  defp alterar_dado_padrao(mapa_valores, mapa_destino) do
     mapa_valores
     |> Enum.map(fn {key, value} -> Map.put(mapa_destino, key, value) end)
     |> List.first()
   end
 
-  def dado_api(valores), do: alternar_dado_padrao(valores, dado_api())
+  def dado_api(valores), do: alterar_dado_padrao(valores, dado_api())
 
-  @spec dado_api :: %{optional(<<_::24, _::_*8>>) => <<_::_*16>> | 1 | 11}
   def dado_api() do
     %{
       "Active" => 1,
@@ -25,7 +24,7 @@ defmodule Test.Fixtures.Api do
     }
   end
 
-  def dado_interno(valores), do: alternar_dado_padrao(valores, dado_interno())
+  def dado_interno(valores), do: alterar_dado_padrao(valores, dado_interno())
 
   def dado_interno() do
     %{
