@@ -1,7 +1,6 @@
 defmodule CovMonitor.Cache.Test do
   use ExUnit.Case, async: true
 
-
   setup do
     cache = start_supervised!(CovMonitor.Cache)
 

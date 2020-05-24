@@ -1,3 +1,3 @@
 defmodule DadosCovid do
-  defstruct  deltas: %DeltasCovid{}, atual: %AtuaisCovid{}
+  defstruct deltas: %DeltasCovid{}, atual: %AtuaisCovid{}
 end

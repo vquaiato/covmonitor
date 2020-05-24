@@ -37,20 +37,18 @@ defmodule Test.Fixtures.Api do
 
   def deltas() do
     %DadosCovid{
-      deltas:
-        %DeltasCovid{
-          confirmados: %{porcentagem: 100, absoluto: 1},
-          ativos: %{porcentagem: 100, absoluto: 1},
-          óbitos: %{porcentagem: 100, absoluto: 1},
-          recuperados: %{porcentagem: 100, absoluto: 1}
-        },
-      atual:
-        %AtuaisCovid{
-          confirmados: 2,
-          ativos: 2,
-          óbitos: 2,
-          recuperados: 2
-        }
+      deltas: %DeltasCovid{
+        confirmados: %{porcentagem: 100, absoluto: 1},
+        ativos: %{porcentagem: 100, absoluto: 1},
+        óbitos: %{porcentagem: 100, absoluto: 1},
+        recuperados: %{porcentagem: 100, absoluto: 1}
+      },
+      atual: %AtuaisCovid{
+        confirmados: 2,
+        ativos: 2,
+        óbitos: 2,
+        recuperados: 2
+      }
     }
   end
 end

@@ -14,8 +14,8 @@ defmodule CovMonitorControllerTest do
     |> expect(:casos_por_pais, fn _pais -> {:ok, [Fix.dado_interno()]} end)
 
     assert CovMonitor.Controller.dados_covid_brasil() ==
-      [Fix.dado_interno()]
-      |> CovMonitor.Logic.deltas()
+             [Fix.dado_interno()]
+             |> CovMonitor.Logic.deltas()
   end
 
   test "api com erro retorna info sobre o erro" do

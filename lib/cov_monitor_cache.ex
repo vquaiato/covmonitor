@@ -10,11 +10,10 @@ defmodule CovMonitor.Cache do
     {:reply, state[pais], state}
   end
 
-  #chamada assíncrona
+  # chamada assíncrona
   def handle_cast({:colocar, {pais, dados_covid}}, state) do
     {:noreply, Map.put(state, pais, dados_covid)}
   end
-
 
   # API Cliente
   def start_link(default) do
