@@ -4,26 +4,27 @@ defmodule CovMonitor.Logic do
     primeiro = dados_covid |> Enum.take(-7) |> List.first()
     atual = List.last(dados_covid)
 
-    %{"deltas" =>
-      %{
-        "confirmados" => delta_info(primeiro["confirmados"], atual["confirmados"]),
-        "recuperados" => delta_info(primeiro["recuperados"], atual["recuperados"]),
-        "ativos" => delta_info(primeiro["ativos"], atual["ativos"]),
-        "óbitos" => delta_info(primeiro["óbitos"], atual["óbitos"])
+    %DadosCovid{
+      deltas:
+      %DeltasCovid{
+        confirmados: delta_info(primeiro[:confirmados], atual[:confirmados]),
+        recuperados: delta_info(primeiro[:recuperados], atual[:recuperados]),
+        ativos: delta_info(primeiro[:ativos], atual[:ativos]),
+        óbitos: delta_info(primeiro[:óbitos], atual[:óbitos])
       },
-      "atual" => %{
-        "confirmados" => atual["confirmados"],
-        "ativos" => atual["ativos"],
-        "recuperados" => atual["recuperados"],
-        "óbitos" => atual["óbitos"],
+      atual: %AtuaisCovid{
+        confirmados: atual[:confirmados],
+        ativos: atual[:ativos],
+        recuperados: atual[:recuperados],
+        óbitos: atual[:óbitos],
       }
     }
   end
 
   defp delta_info(primeiro, ultimo) do
     %{
-      "porcentagem" => delta_porcentagem(primeiro, ultimo),
-      "absoluto" => delta_absoluto(primeiro, ultimo)
+      porcentagem: delta_porcentagem(primeiro, ultimo),
+      absoluto: delta_absoluto(primeiro, ultimo)
     }
   end
 

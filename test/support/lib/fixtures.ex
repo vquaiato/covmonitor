@@ -26,31 +26,31 @@ defmodule Test.Fixtures.Api do
 
   def dado_interno() do
     %{
-      "ativos" => 1,
-      "óbitos" => 1,
-      "confirmados" => 1,
-      "recuperados" => 1,
-      "data" => "06/05/2020",
-      "país" => "Brazil"
+      ativos: 1,
+      óbitos: 1,
+      confirmados: 1,
+      recuperados: 1,
+      data: "06/05/2020",
+      país: "Brazil"
     }
   end
 
   def deltas() do
-    %{
-      "deltas" =>
-      %{
-        "confirmados" => %{"porcentagem"=> 100, "absoluto" => 1},
-        "ativos" => %{"porcentagem"=> 100, "absoluto" => 1},
-        "óbitos" => %{"porcentagem"=> 100, "absoluto" => 1},
-        "recuperados" => %{"porcentagem"=> 100, "absoluto" => 1}
-      },
-      "atual" =>
-      %{
-        "confirmados" => 2,
-        "ativos" => 2,
-        "óbitos" => 2,
-        "recuperados" => 2
-      }
+    %DadosCovid{
+      deltas:
+        %DeltasCovid{
+          confirmados: %{porcentagem: 100, absoluto: 1},
+          ativos: %{porcentagem: 100, absoluto: 1},
+          óbitos: %{porcentagem: 100, absoluto: 1},
+          recuperados: %{porcentagem: 100, absoluto: 1}
+        },
+      atual:
+        %AtuaisCovid{
+          confirmados: 2,
+          ativos: 2,
+          óbitos: 2,
+          recuperados: 2
+        }
     }
   end
 end

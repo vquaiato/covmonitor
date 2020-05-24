@@ -20,7 +20,7 @@ defmodule CovMonitor.Adapter.Test do
 
     dados_esperado = [
       Fix.dado_interno(),
-      Fix.dado_interno(%{"ativos" => 1000, "confirmados" => 50})
+      Fix.dado_interno(%{ativos: 1000, confirmados: 50})
     ]
 
     assert Adapter.de_casos_api_para_casos_interno(dados_api) == dados_esperado

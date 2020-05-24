@@ -7,12 +7,12 @@ defmodule CovMonitor.Adapter do
 
   def caso_api_para_caso_interno(caso_api) do
     %{
-      "confirmados" => caso_api["Confirmed"],
-      "ativos" => caso_api["Active"],
-      "óbitos" => caso_api["Deaths"],
-      "recuperados" => caso_api["Recovered"],
-      "país" => "Brazil",
-      "data" => de_iso_string_para_string_brasil(caso_api["Date"])
+      confirmados: caso_api["Confirmed"],
+      ativos: caso_api["Active"],
+      óbitos: caso_api["Deaths"],
+      recuperados: caso_api["Recovered"],
+      país: "Brazil",
+      data: de_iso_string_para_string_brasil(caso_api["Date"])
     }
   end
 
