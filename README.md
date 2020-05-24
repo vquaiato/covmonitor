@@ -9,10 +9,10 @@ A ideia é avançar nos seguintes tópicos:
 
 ### Console app em Elixir
 - [] escrever testes
-- [] chamar a api de covid
-- [] parse da api de covid
-- [] exibir informações no console
-- [] armazenar dados em um banco de dados
+- [x] chamar a api de covid
+- [x] parse da api de covid
+- [x] exibir informações no console
+- [] construir um cache local utilizando Genserver/OTP
 - [] executar api a cada X tempo
 - [] OTP monitoramento da app
 - [] OTP recovery da app em caso de crash
