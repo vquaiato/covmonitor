@@ -1,8 +1,6 @@
 defmodule Test.Fixtures.Api do
   defp alterar_dado_padrao(mapa_valores, mapa_destino) do
-    mapa_valores
-    |> Enum.map(fn {key, value} -> Map.put(mapa_destino, key, value) end)
-    |> List.first()
+    Map.merge(mapa_destino, mapa_valores)
   end
 
   def dado_api(valores), do: alterar_dado_padrao(valores, dado_api())
@@ -34,6 +32,25 @@ defmodule Test.Fixtures.Api do
       "recuperados" => 1,
       "data" => "06/05/2020",
       "país" => "Brazil"
+    }
+  end
+
+  def deltas() do
+    %{
+      "deltas" =>
+      %{
+        "confirmados" => %{"porcentagem"=> 100, "absoluto" => 1},
+        "ativos" => %{"porcentagem"=> 100, "absoluto" => 1},
+        "óbitos" => %{"porcentagem"=> 100, "absoluto" => 1},
+        "recuperados" => %{"porcentagem"=> 100, "absoluto" => 1}
+      },
+      "atual" =>
+      %{
+        "confirmados" => 2,
+        "ativos" => 2,
+        "óbitos" => 2,
+        "recuperados" => 2
+      }
     }
   end
 end
