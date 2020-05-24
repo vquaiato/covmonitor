@@ -29,7 +29,7 @@ defmodule CovMonitor.Logic do
 
   defp delta_porcentagem(primeiro, ultimo) do
     diferenca = delta_absoluto(primeiro, ultimo)
-    div(diferenca, primeiro) * 100
+    (diferenca /primeiro * 100) |> trunc
   end
 
   defp delta_absoluto(primeiro, ultimo), do: ultimo - primeiro
