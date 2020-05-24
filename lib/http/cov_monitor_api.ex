@@ -4,9 +4,11 @@ defmodule CovMonitor.Http.Api do
   alias CovMonitor.Adapter
 
   def casos_por_pais(pais \\ "brazil") do
-    case HTTPoison.get("https://api.covid19api.com/live/country/#{pais}/status/confirmed") do
-      {:ok, resposta} -> parse_do_json(resposta) |> Adapter.de_casos_api_para_casos_interno()
-      {_status, erro} -> IO.inspect(erro)
+    case HTTPoison.get("https://api.covid19api.com/total/dayone/country/#{pais}") do
+      {:ok, resposta} ->
+        {:ok, parse_do_json(resposta) |>
+        Adapter.de_casos_api_para_casos_interno()}
+      {_status, erro} -> {:erro, erro}
     end
   end
 
