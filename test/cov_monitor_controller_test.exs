@@ -5,7 +5,6 @@ defmodule CovMonitorControllerTest do
   require Logger
 
   alias Test.Fixtures.Api, as: Fix
-  alias CovMonitor.Logic
 
   setup :verify_on_exit!
 

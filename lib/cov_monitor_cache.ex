@@ -25,6 +25,6 @@ defmodule CovMonitor.Cache do
   end
 
   def obter(pais) do
-    GenServer.call(__MODULE__, {:obter, pais})
+    {:ok, GenServer.call(__MODULE__, {:obter, pais})}
   end
 end
