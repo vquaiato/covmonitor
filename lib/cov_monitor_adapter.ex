@@ -1,5 +1,4 @@
 defmodule CovMonitor.Adapter do
-
   def de_casos_api_para_casos_interno(casos_api) do
     Enum.map(casos_api, fn caso_api ->
       caso_api_para_caso_interno(caso_api)
