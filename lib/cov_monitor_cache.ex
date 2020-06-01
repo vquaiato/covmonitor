@@ -1,5 +1,6 @@
 defmodule CovMonitor.Cache do
   use GenServer
+  @behaviour CovMonitor.Cache.Behavior
 
   def init(_init_arg) do
     {:ok, %{}}

@@ -1,1 +1,1 @@
-Mox.defmock(CovMonitor.Http.Mock, for: CovMonitor.Http)
+Mox.defmock(CovMonitor.Mock, for: [CovMonitor.Http, CovMonitor.Cache.Behavior])

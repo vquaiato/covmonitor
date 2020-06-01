@@ -4,6 +4,8 @@ defmodule CovMonitor.Controller do
   alias CovMonitor.{Logic, Cache}
 
   @api Application.get_env(:covmonitor, :covapi)
+  @cache Application.get_env(:covmonitor, :covcache)
+
   @país "brazil"
 
   def dados_covid_brasil() do
@@ -14,9 +16,21 @@ defmodule CovMonitor.Controller do
   end
 
   defp dados_covid() do
-    case Cache.obter(@país) do
-      {:ok, nil} -> @api.casos_por_pais(@país)
-      {:ok, dados} -> {:ok, dados}
+    case @cache.obter(@país) do
+      {_, nil} -> chamar_api_e_colocar_no_cache()
+      {_, dados} -> {:ok, dados}
     end
+  end
+
+  defp chamar_api_e_colocar_no_cache() do
+    case @api.casos_por_pais(@país) do
+      {:ok, dados} -> {:ok, adicionar_cache(dados)}
+      {:erro, erro} -> {:erro, erro}
+    end
+  end
+
+  defp adicionar_cache(dados) do
+    @cache.colocar(@país, dados)
+    dados
   end
 end
